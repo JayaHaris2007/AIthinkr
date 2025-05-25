@@ -1,0 +1,77 @@
+.navbar-brand{
+  font-weight: bold;
+}
+
+.box {
+    margin-top: 50px;
+    max-width: 500px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 600px;
+    background-color: #f8f9fa;
+  }
+
+
+  .chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+  }
+
+  .chat-message {
+    margin-bottom: 10px;
+  }
+
+  .chat-message.user {
+    text-align: right;
+  }
+
+  .chat-message.bot {
+    text-align: left;
+  }
+
+  .chat-footer {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+  }
+
+  .chat-footer input {
+    width: 85%;
+    padding: 8px;
+  }
+
+  .chat-footer button {
+    width: 12%;
+  }
+
+    .login-box {
+      max-width: 400px;
+      margin: auto;
+      margin-top: 10%;
+      background: #1e1e2f;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      color: #fff;
+    }
+    .form-control {
+      background-color: #2a2a3a;
+      border: none;
+      color: #fff;
+    }
+    .form-control:focus {
+      box-shadow: none;
+      background-color: #2a2a3a;
+      color: #fff;
+    }
+    .btn-primary {
+      background-color: #4e9af1;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #357ae8;
+    }
