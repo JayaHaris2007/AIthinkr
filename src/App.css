@@ -1,139 +1,223 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-.navbar-brand{
+.navbar-brand {
   font-weight: bold;
 }
 
 .box {
-    margin-top: 50px;
-    max-width: 500px;
-    margin: 50px auto;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 600px;
-    background-color: #f8f9fa;
-  }
+  margin-top: 50px;
+  max-width: 500px;
+  margin: 50px auto;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  background-color: #f8f9fa;
+}
 
+.chat-body {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+}
 
-  .chat-body {
-    flex: 1;
-    padding: 15px;
-    overflow-y: auto;
-  }
+.chat-message {
+  margin-bottom: 10px;
+}
 
-  .chat-message {
-    margin-bottom: 10px;
-  }
+.chat-message.user {
+  text-align: right;
+}
 
-  .chat-message.user {
-    text-align: right;
-  }
+.chat-message.bot {
+  text-align: left;
+}
 
-  .chat-message.bot {
-    text-align: left;
-  }
+.chat-footer {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  gap: 10px;
+}
 
-  .chat-footer {
-    padding: 10px;
-    border-top: 1px solid #ccc;
+.chat-footer input {
+  width: 85%;
+  padding: 8px;
+}
+
+.chat-footer button {
+  width: 12%;
+}
+
+.login-box {
+  max-width: 400px;
+  margin: auto;
+  margin-top: 10%;
+  background: #1e1e2f;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.form-control {
+  background-color: #2a2a3a;
+  border: none;
+  color: #fff;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  background-color: #2a2a3a;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #4e9af1;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #357ae8;
+}
+
+.image {
+  padding-top: 5px;
+  margin-right: 15px;
+  border-radius: 25px;
+  background-color: white;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #343a40;
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+}
+
+.sidebar ul li a {
+  color: #adb5bd;
+  text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+  color: #fff;
+}
+
+.sidebar ul li.active a {
+  color: #fff;
+  font-weight: bold;
+}
+
+.sidebar ul li a i {
+  margin-right: 10px;
+  color: #adb5bd;
+}
+
+.sidebar ul li a:hover i {
+  color: #fff;
+}
+
+.mainbar {
+  margin-left: 250px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* Optional: Bot is typing styling */
+.typing-indicator {
+  font-style: italic;
+  color: #6c757d;
+}
+
+/* Mobile Responsive Tweaks */
+@media screen and (max-width: 600px) {
+  .box {
+    margin: 20px 10px;
+    width: 100%;
+    height: 90vh;
   }
 
   .chat-footer input {
-    width: 85%;
-    padding: 8px;
+    width: 70%;
   }
 
   .chat-footer button {
-    width: 12%;
+    width: 25%;
   }
 
-    .login-box {
-      max-width: 400px;
-      margin: auto;
-      margin-top: 10%;
-      background: #1e1e2f;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-      color: #fff;
-    }
-    .form-control {
-      background-color: #2a2a3a;
-      border: none;
-      color: #fff;
-    }
-    .form-control:focus {
-      box-shadow: none;
-      background-color: #2a2a3a;
-      color: #fff;
-    }
-    .btn-primary {
-      background-color: #4e9af1;
-      border: none;
-    }
-    .btn-primary:hover {
-      background-color: #357ae8;
-    }
+  .mainbar {
+    margin-left: 0;
+    padding: 10px;
+  }
 
-    .image {
-      padding-top : 5px;
-      margin-right: 15px;
-      border-radius: 25px;
-      background-color: white;
-    }
+  .sidebar {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
 
-    .sidebar{
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 250px;
-      height: 100%;
-      background-color: #343a40;
-      color: white;
-      padding: 20px;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    }
-    .sidebar h2 {
-      color: #fff;
-      margin-bottom: 20px;
-    }
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-    }
-    .sidebar ul li {
-      margin: 10px 0;
-    }
-    .sidebar ul li a {
-      color: #adb5bd;
-      text-decoration: none;
-    }
-    .sidebar ul li a:hover {
-      color: #fff;
-    }
-    .sidebar ul li.active a {
-      color: #fff;
-      font-weight: bold;
-    }
-    .sidebar ul li a i {
-      margin-right: 10px;
-    }
-    .sidebar ul li a:hover i {
-      color: #fff;
-    }
-    .sidebar ul li a i {
-      color: #adb5bd;
-    }
+  .mainbar {
+    margin-left: 200px;
+  }
+}
 
-    .mainbar{
-      margin-left: 250px;
-      padding: 20px;
-      background-color: #f8f9fa;
-      min-height: 100vh;
-    }
+/* Layout Wrapper */
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f1f1f1;
+}
+
+/* Sidebar stays on the left */
+.sidebar {
+  flex-shrink: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #343a40;
+  color: white;
+  padding: 20px;
+}
+
+/* Main content takes the rest of the space */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+/* Align login button and heading */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
