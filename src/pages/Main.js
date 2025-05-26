@@ -13,12 +13,10 @@ const Main = () => {
 
 
 
-          <div  class='mainbar'>
 
             <Nav />
             <ChatBox />
             
-          </div>
 
       </div>
         
