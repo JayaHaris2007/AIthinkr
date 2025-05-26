@@ -1,3 +1,8 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 .navbar-brand{
   font-weight: bold;
 }
@@ -74,4 +79,61 @@
     }
     .btn-primary:hover {
       background-color: #357ae8;
+    }
+
+    .image {
+      padding-top : 5px;
+      margin-right: 15px;
+      border-radius: 25px;
+      background-color: white;
+    }
+
+    .sidebar{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #343a40;
+      color: white;
+      padding: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+    .sidebar h2 {
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .sidebar ul li {
+      margin: 10px 0;
+    }
+    .sidebar ul li a {
+      color: #adb5bd;
+      text-decoration: none;
+    }
+    .sidebar ul li a:hover {
+      color: #fff;
+    }
+    .sidebar ul li.active a {
+      color: #fff;
+      font-weight: bold;
+    }
+    .sidebar ul li a i {
+      margin-right: 10px;
+    }
+    .sidebar ul li a:hover i {
+      color: #fff;
+    }
+    .sidebar ul li a i {
+      color: #adb5bd;
+    }
+
+    .mainbar{
+      margin-left: 250px;
+      padding: 20px;
+      background-color: #f8f9fa;
+      min-height: 100vh;
     }

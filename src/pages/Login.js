@@ -3,7 +3,7 @@ import logo from '../assets/logo.png';
 export default function Login() {
   return (
     <div class="login-box">
-    <h2 class="text-center mb-4"><img src={logo} alt="Logo" width="40" height="40" class="d-inline-block align-text-top bg-light"/>AIThinkr</h2>
+    <h2 class="text-center mb-4"><img src={logo} alt="Logo" width="45" height="45" class="image"/>AIThinkr</h2>
     <form>
       <div class="mb-3">
         <label class="form-label">Email address</label>
