@@ -194,3 +194,54 @@
   width: 100%;
   height: 400px;
 }
+
+.guest-mode{
+  display: inline;
+}
+
+.guest-mode .navbar {
+  margin-left: 0 !important; /* No left margin */
+}
+
+.guest-mode .box {
+  margin-top: 5%;
+  margin-left: 5%;  /* Remove left margin */
+  margin-right: 5%;  /* Remove left margin */
+  max-width: 100%; /* Limit width for chatbox */
+  margin: 20px auto; /* Center horizontally with vertical margin */
+  height: auto; /* Adjust height to content */
+  width: 90%; /* Responsive width */
+}
+
+/* Adjust mainbar for guest mode */
+.guest-mode .mainbar {
+  margin-left: 0 !important;
+  padding: 20px 10px;
+}
+
+/* Optional: keep chat-body scroll area consistent */
+.guest-mode .chat-body {
+  display: inline-block;
+  width: 100%;
+  height: 400px;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+}
+
+.typing-indicator {
+  font-style: italic;
+  color: #6c757d;
+  /* Optional: animated dots */
+  position: relative;
+}
+
+.typing-indicator .chat-text::after {
+  content: '...';
+  animation: blink 1.4s infinite;
+}
+
+@keyframes blink {
+  0%, 20% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}

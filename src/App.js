@@ -6,7 +6,11 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 import Login from './pages/Login';
 
+import Home from './pages/Home';
+
 import Main from './pages/Main';
+
+import {Guest}  from './pages/Guest';
 
 import { BrowserRouter , Route, Routes } from 'react-router-dom';
 
@@ -15,9 +19,10 @@ function App() {
     <div>
       <BrowserRouter>
       <Routes>
-
+        <Route path="/" element={<Home />} />
+        <Route path="/guest" element={<Guest />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Main />} />
+        <Route path="/main" element={<Main />} />
       </Routes>
       </BrowserRouter>
     </div>
