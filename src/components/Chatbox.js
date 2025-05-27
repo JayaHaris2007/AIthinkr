@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import ReactMarkdown from "react-markdown";
 
 // Initialize the Generative AI model
 const genAI = new GoogleGenerativeAI('AIzaSyAiV_SF4k-qRDPTDPBVEFMQ9d8eM1KLjoU');
@@ -54,7 +55,7 @@ const Chatbox = () => {
               >
                 {msg.type === 'user' ? 'You' : 'Bot'}:
               </span>
-              <span className="chat-text">{msg.text}</span>
+              <span className="chat-text"><ReactMarkdown>{msg.text}</ReactMarkdown></span>
             </div>
           ))}
         </div>
