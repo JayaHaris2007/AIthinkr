@@ -10,10 +10,6 @@ export default function Login() {
         <input type="email" class="form-control" placeholder="Enter email" />
       </div>
       <div class="mb-3">
-        <label class="form-label">Register Number</label>
-        <input type="number" class="form-control" placeholder="Enter Reg. No." />
-      </div>
-      <div class="mb-3">
         <label class="form-label">Password</label>
         <input type="password" class="form-control" placeholder="Password" />
       </div>

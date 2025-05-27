@@ -40,7 +40,7 @@ const Chatbox = () => {
   return (
     <div className="mainbar d-flex justify-content-center align-items-center">
       <div className="box">
-        <h3 className="text-center mb-4">AIthinkr – Ask your doubt</h3>
+        <h3 className="text-center mb-4 ">AIthinkr – Ask your doubt</h3>
 
         <div className="chat-body mb-3">
           {messages.map((msg, index) => (
