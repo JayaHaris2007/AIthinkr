@@ -1,17 +1,33 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import ReactMarkdown from "react-markdown";
+import { db } from '../firebaseConfig';
+import { doc, setDoc, getDoc, updateDoc, arrayUnion, serverTimestamp } from 'firebase/firestore';
 
 // Initialize the Generative AI model
 const genAI = new GoogleGenerativeAI('AIzaSyAiV_SF4k-qRDPTDPBVEFMQ9d8eM1KLjoU');
 
-const Chatbox = () => {
+const Chatbox = ({ userId, chatId, onNewChat }) => {
   const inputRef = useRef(null);
   const chatBodyRef = useRef(null);
-  const [messages, setMessages] = useState([
-    { type: 'bot', text: 'Hi there! How can I help?' },
-  ]);
+  const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  // Load chat history when chatId changes
+  useEffect(() => {
+    const loadChat = async () => {
+      if (!chatId) {
+        setMessages([{ type: 'bot', text: 'Hi there! How can I help?' }]);
+        return;
+      }
+      const chatRef = doc(db, 'chats', chatId);
+      const chatSnap = await getDoc(chatRef);
+      if (chatSnap.exists()) {
+        setMessages(chatSnap.data().messages || []);
+      }
+    };
+    loadChat();
+  }, [chatId]);
 
   // Auto scroll chat to bottom smoothly when messages or loading changes
   useEffect(() => {
@@ -27,7 +43,8 @@ const Chatbox = () => {
     const userMsg = inputRef.current.value.trim();
     if (!userMsg) return;
 
-    setMessages(prev => [...prev, { type: 'user', text: userMsg }]);
+    const newMessages = [...messages, { type: 'user', text: userMsg }];
+    setMessages(newMessages);
     inputRef.current.value = '';
     setLoading(true);
 
@@ -37,9 +54,30 @@ const Chatbox = () => {
       const response = await result.response;
       const botReply = await response.text();
 
-      setMessages(prev => [...prev, { type: 'bot', text: botReply }]);
+      const updatedMessages = [...newMessages, { type: 'bot', text: botReply }];
+
+      // Save to Firestore
+      let chatRef;
+      if (chatId) {
+        chatRef = doc(db, 'chats', chatId);
+        await updateDoc(chatRef, {
+          messages: updatedMessages
+        });
+      } else {
+        // New chat
+        const newChatId = Date.now().toString();
+        chatRef = doc(db, 'chats', newChatId);
+        await setDoc(chatRef, {
+          messages: updatedMessages,
+          createdAt: serverTimestamp(),
+          title: userMsg.substring(0, 20), // first message as title
+          userId: userId || null // <-- associate chat with user
+        });
+        if (onNewChat) onNewChat(newChatId);
+      }
+
+      setMessages(updatedMessages);
     } catch (error) {
-      console.error('Error generating content:', error);
       setMessages(prev => [...prev, { type: 'bot', text: 'Sorry, something went wrong.' }]);
     } finally {
       setLoading(false);
