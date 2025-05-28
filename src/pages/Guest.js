@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Nav from '../components/Nav';
+import Nav from '../components/guestNav';
 import ChatBox from '../components/Chatbox'
 
 export const Guest = () => {

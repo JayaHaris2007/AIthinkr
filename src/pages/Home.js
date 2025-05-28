@@ -40,7 +40,7 @@ export default function AboutUs() {
           <strong>Praveen</strong>: The backend maestro, crafting robust, scalable, and secure server-side systems.
         </li>
         <li>
-          <strong>Nihal</strong>: Our frontend wizard, designing sleek, intuitive, and user-friendly interfaces that delight.
+          <strong>Nihal Ahmed</strong>: Our frontend wizard, designing sleek, intuitive, and user-friendly interfaces that delight.
         </li>
       </ul>
 

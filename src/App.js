@@ -20,6 +20,7 @@ function App() {
       <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        
         <Route path="/guest" element={<Guest />} />
         <Route path="/login" element={<Login />} />
         <Route path="/main" element={<Main />} />
